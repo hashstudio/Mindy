@@ -2,17 +2,16 @@
 
 mkdir -p app/Modules;
 cd app/Modules;
-git clone https://github.com/studio107/Admin.git
-git clone https://github.com/studio107/Comments.git
-git clone https://github.com/studio107/Core.git
-git clone https://github.com/studio107/Files.git
-git clone https://github.com/studio107/Mail.git
-git clone https://github.com/studio107/Menu.git
-git clone https://github.com/studio107/Pages.git
-git clone https://github.com/studio107/Redirect.git
-git clone https://github.com/studio107/Sitemap.git
-git clone https://github.com/studio107/Sites.git
-git clone https://github.com/studio107/Translate.git
-git clone https://github.com/studio107/User.git
 
-git clone https://github.com/qantus/Meta.git
+git clone https://github.com/hashstudio/Admin.git
+git clone https://github.com/hashstudio/Core.git
+git clone https://github.com/hashstudio/Files.git
+git clone https://github.com/hashstudio/Mail.git
+git clone https://github.com/hashstudio/Menu.git
+git clone https://github.com/hashstudio/Pages.git
+git clone https://github.com/hashstudio/Redirect.git
+git clone https://github.com/hashstudio/Sitemap.git
+git clone https://github.com/hashstudio/Sites.git
+git clone https://github.com/hashstudio/Translate.git
+git clone https://github.com/hashstudio/User.git
+git clone https://github.com/hashstudio/Meta.git
