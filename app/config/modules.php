@@ -2,16 +2,15 @@
 
 return [
     'Admin',
-    'Comments',
     'Core',
-    'Files',
-    'Mail',
+    'Pages',
     'Menu',
     'Meta',
-    'Pages',
+    'User',
+    'Files',
+    'Mail',
     'Redirect',
     'Sitemap',
     'Sites',
     'Translate',
-    'User',
 ];
