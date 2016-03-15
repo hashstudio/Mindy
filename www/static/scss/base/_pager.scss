@@ -22,7 +22,6 @@
 
       .inner {
         color: $secondary-color;
-        border-bottom: opacify($secondary-color, 0.4);
       }
     }
 
@@ -31,7 +30,6 @@
         border: 1px solid #D2D9E1;
 
         .inner {
-          border-bottom: 1px solid $t;
           color: #000;
         }
       }

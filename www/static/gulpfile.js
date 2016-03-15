@@ -9,25 +9,17 @@ var concat = require('gulp-concat'),
     changed = require('gulp-changed'),
     rimraf = require('gulp-rimraf'),
     cache = require('gulp-cached'),
-    livereload = require('gulp-livereload'),
-    empty = require('gulp-empty');
+    livereload = require('gulp-livereload');
 
 var version = '1.0.0';
 
 var minify = false;
-if (!minify) {
-    uglify = empty;
-    imagemin = empty;
-    cssnano = empty;
-}
 
 var imagesOpts = {
     optimizationLevel: 5,
     progressive: true,
     interlaced: true
 };
-
-var noop = function(){};
 
 var sassOpts = {
     includePaths: [
@@ -101,18 +93,21 @@ gulp.task('fonts', function() {
 });
 
 gulp.task('js', function() {
-    return gulp.src(paths.js)
-        .pipe(uglify())
-        .pipe(concat(version + '.all.js'))
+    var js = gulp.src(paths.js);
+    if (minify) {
+        js = js.pipe(uglify());
+    }
+    return js.pipe(concat(version + '.all.js'))
         .pipe(gulp.dest(dst.js))
         .pipe(livereload());
 });
 
 gulp.task('images', function() {
-    return gulp.src(paths.images)
-        .pipe(changed(dst.images))
-        .pipe(imagemin(imagesOpts))
-        .pipe(gulp.dest(dst.images))
+    var images = gulp.src(paths.images).pipe(changed(dst.images));
+    if (minify) {
+        images = images.pipe(imagemin(imagesOpts));
+    }
+    return images.pipe(gulp.dest(dst.images))
         .pipe(livereload());
 });
 
@@ -123,9 +118,11 @@ gulp.task('sass', function() {
 });
 
 gulp.task('css', ['sass'], function() {
-    return gulp.src(paths.css)
-        .pipe(cssnano())
-        .pipe(concat(version + '.all.css'))
+    var css = gulp.src(paths.css);
+    if (minify) {
+        css = css.pipe(cssnano());
+    }
+    return css.pipe(concat(version + '.all.css'))
         .pipe(gulp.dest(dst.css))
         .pipe(livereload());
 });
